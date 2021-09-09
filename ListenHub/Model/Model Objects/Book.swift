@@ -16,7 +16,7 @@ struct Book: Identifiable {
     let id: String
     let title: String
     let author: Author
-    let image: URL
+    let imageURL: URL
 }
 
 struct Author: Identifiable {
