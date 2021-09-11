@@ -25,12 +25,6 @@ struct HomeView: View {
     }
 }
 
-struct CollectionsView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
 extension HomeView {
     func collectionList(collections: [Collection]) -> some View {
         ScrollView(.vertical, showsIndicators: false){
