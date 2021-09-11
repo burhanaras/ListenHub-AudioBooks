@@ -9,6 +9,7 @@ import Foundation
 
 struct Collection: Identifiable {
     let id: String
+    let title: String
     let books: [Book]
 }
 
