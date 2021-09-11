@@ -15,17 +15,19 @@ struct HomeView: View {
     }
     
     var body: some View {
-        VStack{
-            switch viewModel.data {
-            case let .success(collections):
-                collectionList(collections: collections)
-            case let .failure(error):
-               ErrorView(error: error)
-            case .none:
-               LoadingView()
+        NavigationView {
+            VStack{
+                switch viewModel.data {
+                case let .success(collections):
+                    collectionList(collections: collections)
+                case let .failure(error):
+                   ErrorView(error: error)
+                case .none:
+                   LoadingView()
+                }
             }
+            .navigationBarTitle("Home")
         }
-        .navigationBarTitle("Home")
     }
 }
 
