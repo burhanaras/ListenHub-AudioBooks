@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		943725E326CAE2C800CB240B /* ListenHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943725E226CAE2C800CB240B /* ListenHubApp.swift */; };
-		943725E526CAE2C800CB240B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943725E426CAE2C800CB240B /* ContentView.swift */; };
 		943725E726CAE2CB00CB240B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943725E626CAE2CB00CB240B /* Assets.xcassets */; };
 		943725EA26CAE2CB00CB240B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943725E926CAE2CB00CB240B /* Preview Assets.xcassets */; };
 		94AE0A0C26EA8B6700E8CD7B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A0B26EA8B6700E8CD7B /* HomeView.swift */; };
@@ -17,12 +16,15 @@
 		94AE0A1226EA984500E8CD7B /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A1126EA984500E8CD7B /* HomeViewModel.swift */; };
 		94AE0A1426ED081E00E8CD7B /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A1326ED081E00E8CD7B /* ErrorView.swift */; };
 		94AE0A1626ED090100E8CD7B /* IRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A1526ED090100E8CD7B /* IRepository.swift */; };
+		94AE0A1826ED0C1500E8CD7B /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A1726ED0C1500E8CD7B /* LoadingView.swift */; };
+		94AE0A1B26ED0E0D00E8CD7B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 94AE0A1A26ED0E0D00E8CD7B /* Kingfisher */; };
+		94AE0A1D26ED0E2800E8CD7B /* NetworkImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A1C26ED0E2800E8CD7B /* NetworkImage.swift */; };
+		94AE0A1F26ED107300E8CD7B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A1E26ED107300E8CD7B /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		943725DF26CAE2C800CB240B /* ListenHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListenHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		943725E226CAE2C800CB240B /* ListenHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenHubApp.swift; sourceTree = "<group>"; };
-		943725E426CAE2C800CB240B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		943725E626CAE2CB00CB240B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		943725E926CAE2CB00CB240B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		943725EB26CAE2CB00CB240B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -32,6 +34,9 @@
 		94AE0A1126EA984500E8CD7B /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		94AE0A1326ED081E00E8CD7B /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		94AE0A1526ED090100E8CD7B /* IRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRepository.swift; sourceTree = "<group>"; };
+		94AE0A1726ED0C1500E8CD7B /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		94AE0A1C26ED0E2800E8CD7B /* NetworkImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkImage.swift; sourceTree = "<group>"; };
+		94AE0A1E26ED107300E8CD7B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94AE0A1B26ED0E0D00E8CD7B /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +98,7 @@
 				94AE0A0226EA89F000E8CD7B /* Languages */,
 				94AE0A0326EA89F600E8CD7B /* Search */,
 				94AE0A0426EA89FC00E8CD7B /* Player */,
-				943725E426CAE2C800CB240B /* ContentView.swift */,
+				94AE0A1E26ED107300E8CD7B /* ContentView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -129,6 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				94AE0A1326ED081E00E8CD7B /* ErrorView.swift */,
+				94AE0A1726ED0C1500E8CD7B /* LoadingView.swift */,
+				94AE0A1C26ED0E2800E8CD7B /* NetworkImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -231,6 +239,9 @@
 			dependencies = (
 			);
 			name = ListenHub;
+			packageProductDependencies = (
+				94AE0A1A26ED0E0D00E8CD7B /* Kingfisher */,
+			);
 			productName = ListenHub;
 			productReference = 943725DF26CAE2C800CB240B /* ListenHub.app */;
 			productType = "com.apple.product-type.application";
@@ -258,6 +269,9 @@
 				Base,
 			);
 			mainGroup = 943725D626CAE2C800CB240B;
+			packageReferences = (
+				94AE0A1926ED0E0D00E8CD7B /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 943725E026CAE2C800CB240B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -290,8 +304,10 @@
 				94AE0A0C26EA8B6700E8CD7B /* HomeView.swift in Sources */,
 				94AE0A1426ED081E00E8CD7B /* ErrorView.swift in Sources */,
 				94AE0A1626ED090100E8CD7B /* IRepository.swift in Sources */,
-				943725E526CAE2C800CB240B /* ContentView.swift in Sources */,
+				94AE0A1F26ED107300E8CD7B /* ContentView.swift in Sources */,
+				94AE0A1D26ED0E2800E8CD7B /* NetworkImage.swift in Sources */,
 				943725E326CAE2C800CB240B /* ListenHubApp.swift in Sources */,
+				94AE0A1826ED0C1500E8CD7B /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +496,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94AE0A1926ED0E0D00E8CD7B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94AE0A1A26ED0E0D00E8CD7B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94AE0A1926ED0E0D00E8CD7B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 943725D726CAE2C800CB240B /* Project object */;
 }

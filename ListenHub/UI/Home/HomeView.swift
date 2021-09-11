@@ -13,15 +13,19 @@ struct HomeView: View {
     init(viewModel: HomeViewModel) {
         _viewModel = ObservedObject(initialValue: viewModel)
     }
+    
     var body: some View {
-        switch viewModel.data {
-        case let .success(collections):
-            collectionList(collections: collections)
-        case let .failure(error):
-            Text("Error")
-        case .none:
-            ProgressView()
+        VStack{
+            switch viewModel.data {
+            case let .success(collections):
+                collectionList(collections: collections)
+            case let .failure(error):
+               ErrorView(error: error)
+            case .none:
+               LoadingView()
+            }
         }
+        .navigationBarTitle("Home")
     }
 }
 
@@ -29,16 +33,49 @@ extension HomeView {
     func collectionList(collections: [Collection]) -> some View {
         ScrollView(.vertical, showsIndicators: false){
             ForEach(collections){ collection in
-                Text("")
+                ShelfView(collection: collection)
             }
         }
     }
+}
+
+struct ShelfView: View {
+    let collection: Collection
     
-    
+    var body: some View {
+        VStack (alignment: .leading, spacing: 8){
+            Text(collection.title)
+                .font(.headline)
+                .padding(.horizontal)
+            
+            ScrollView(.horizontal, showsIndicators: false){
+                HStack{
+                    ForEach(collection.books){ book in
+                        VStack (alignment: .leading){
+                            NetworkImage(imageURL: book.imageURL)
+                            .aspectRatio(1, contentMode: .fit)
+                            .cornerRadius(8)
+                            
+                            Text(book.title).font(.subheadline).bold()
+                            Text(book.author.name)
+                                .opacity(0.6)
+                            
+                        }
+                        .frame(width: 160, height: 200, alignment: .leading)
+                    }
+                }
+                .padding([.leading, .bottom])
+            }
+        }
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel())
+        Group {
+            HomeView(viewModel: HomeViewModel())
+            ShelfView(collection: Collection(id: "", title: "Newest Books", books: [dummyBook]))
+                .previewLayout(.sizeThatFits)
+        }
     }
 }

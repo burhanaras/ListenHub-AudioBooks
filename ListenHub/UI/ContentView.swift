@@ -2,15 +2,16 @@
 //  ContentView.swift
 //  ListenHub
 //
-//  Created by Burhan Aras on 16.08.2021.
+//  Created by Burhan Aras on 11.09.2021.
 //
 
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            HomeView(viewModel: HomeViewModel())
+        }
     }
 }
 
