@@ -37,7 +37,11 @@ extension LanguagesView {
                           content: {
                             ForEach(languages) { language in
                                 VStack{
-                                    LanguageView(language: language)
+                                    NavigationLink(
+                                        destination: Text("Language Details"),
+                                        label: {
+                                            LanguageView(language: language)
+                                        })
                                     Divider()
                                 }
                             }
@@ -53,15 +57,19 @@ struct LanguageView: View {
     let language: Language
     
     var body: some View {
-        HStack (spacing: 12){
-            Text(language.emoji)
-            Text(language.name)
-                .font(.subheadline).bold()
-                .foregroundColor(.primary)
-            Text("/  \(language.originalName)")
-                .font(.subheadline).bold()
-                .foregroundColor(.primary)
-                .opacity(0.6)
+        HStack (alignment: .top, spacing: 12){
+            Text(language.emoji).font(.largeTitle)
+            VStack (alignment: .leading) {
+                Text(language.name)
+                    .font(.subheadline).bold()
+                    .foregroundColor(.primary)
+                
+                Text("\(language.originalName)")
+                    .font(.subheadline).bold()
+                    .foregroundColor(.primary)
+                    .opacity(0.6)
+            }
+
             Spacer()
         }
         .padding(.horizontal)
