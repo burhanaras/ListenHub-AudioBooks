@@ -28,6 +28,7 @@ struct HomeView: View {
             }
             .navigationBarTitle("Home")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
