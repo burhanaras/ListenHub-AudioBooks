@@ -10,6 +10,7 @@ import Foundation
 class BookDetailViewModel: ObservableObject {
     @Published var book : Result<Book, Error>? = .none
     @Published var similarContent: Result<Collection, Error>? = .none
+    @Published var isPlaying: Bool = false
     
     private let repository: IRepository = DummyDataRepository()
     

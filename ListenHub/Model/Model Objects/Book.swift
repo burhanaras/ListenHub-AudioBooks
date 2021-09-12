@@ -18,6 +18,7 @@ struct Book: Identifiable {
     let title: String
     let author: Author
     let imageURL: URL
+    let description: String
 }
 
 struct Author: Identifiable {

@@ -15,3 +15,7 @@ struct ListenHubApp: App {
         }
     }
 }
+
+var isIPad: Bool {
+    return UIDevice.current.model == "iPad"
+}

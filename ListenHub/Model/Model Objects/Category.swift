@@ -19,5 +19,7 @@ struct Language: Identifiable {
     let id: String
     let name: String
     let originalName: String
+    let flag: String
+    let emoji: String
     let books: [Book]
 }

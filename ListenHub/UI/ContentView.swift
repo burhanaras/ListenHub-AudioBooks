@@ -28,7 +28,7 @@ struct ContentView: View {
                     Text("Categories")
                 }.tag(2)
             
-            Text("Languages")
+            LanguagesView(viewModel: LanguagesViewModel())
                 .tabItem {
                     Image(systemName: "globe")
                     Text("Languages")

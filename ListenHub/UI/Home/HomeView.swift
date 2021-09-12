@@ -44,6 +44,7 @@ extension HomeView {
 
 struct ShelfView: View {
     let collection: Collection
+    let bookDimensions: (CGFloat, CGFloat) = (UIDevice.current.model == "iPad") ? (CGFloat(220), CGFloat(330)) : (CGFloat(140), CGFloat(220))
     
     var body: some View {
         VStack (alignment: .leading, spacing: 8){
@@ -52,19 +53,32 @@ struct ShelfView: View {
                 .padding(.horizontal)
             
             ScrollView(.horizontal, showsIndicators: false){
-                HStack{
+                HStack (spacing: 12){
                     ForEach(collection.books){ book in
-                        VStack (alignment: .leading){
-                            NetworkImage(imageURL: book.imageURL)
-                            .aspectRatio(1, contentMode: .fit)
-                            .cornerRadius(8)
-                            
-                            Text(book.title).font(.subheadline).bold()
-                            Text(book.author.name)
-                                .opacity(0.6)
-                            
-                        }
-                        .frame(width: 160, height: 200, alignment: .leading)
+                        NavigationLink(
+                            destination: Coordinator.shared.bookDetailView(for: book),
+                            label: {
+                                VStack (alignment: .leading){
+                                    NetworkImage(imageURL: book.imageURL)
+                                    .aspectRatio(1, contentMode: .fit)
+                                    .frame(width: bookDimensions.0, height: bookDimensions.0, alignment: .center)
+                                    .cornerRadius(8)
+                                        .shadow(radius: 8)
+                                    
+                                    Text(book.title)
+                                        .font(.subheadline).bold()
+                                        .foregroundColor(.primary)
+                                        .padding(.bottom, 2)
+                                    
+                                    Text(book.author.name)
+                                        .font(.subheadline).bold()
+                                        .foregroundColor(.primary)
+                                        .opacity(0.6)
+                                    
+                                }
+                                .frame(width: bookDimensions.0, height: bookDimensions.1, alignment: .leading)
+
+                            })
                     }
                 }
                 .padding([.leading, .bottom])
