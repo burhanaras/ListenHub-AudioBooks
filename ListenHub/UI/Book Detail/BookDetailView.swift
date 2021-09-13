@@ -38,6 +38,7 @@ extension BookDetailView{
                         .aspectRatio(1, contentMode: .fit)
                         .frame(width: isIPad ? 360 : 240)
                         .cornerRadius(8)
+                        .shadow(radius: 8)
                         .padding(.bottom, 32)
                     Text(book.title)
                         .font(.subheadline).bold()

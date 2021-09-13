@@ -9,10 +9,10 @@ import Foundation
 
 class HomeViewModel: ObservableObject {
     @Published var data: Result<[Collection], Error>? = .none
+    private let repository: IRepository
     
-    private let repository: IRepository = DummyDataRepository()
-    
-    init() {
+    init(repository: IRepository) {
+        self.repository = repository
         loadData()
     }
     

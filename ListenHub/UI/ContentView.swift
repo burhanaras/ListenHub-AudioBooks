@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         TabView{
-            HomeView(viewModel: HomeViewModel())
+            HomeView(viewModel: HomeViewModel(repository: DummyDataRepository()))
                 .tabItem {
                     Image(systemName: "text.book.closed.fill")
                     Text("Home")
@@ -22,7 +22,7 @@ struct ContentView: View {
                     Text("Search")
                 }.tag(1)
             
-            Text("Categories")
+            CategoriesView(viewModel: CategoriesViewModel(repository: DummyDataRepository()))
                 .tabItem {
                     Image(systemName: "line.horizontal.3.decrease.circle")
                     Text("Categories")

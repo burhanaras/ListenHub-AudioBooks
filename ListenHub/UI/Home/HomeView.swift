@@ -90,7 +90,7 @@ struct ShelfView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            HomeView(viewModel: HomeViewModel())
+            HomeView(viewModel: HomeViewModel(repository: DummyDataRepository()))
             ShelfView(collection: Collection(id: "", title: "Newest Books", books: [dummyBook]))
                 .previewLayout(.sizeThatFits)
         }
