@@ -27,13 +27,16 @@ struct LanguagesView: View {
 
 extension LanguagesView {
     
+    var columns: [GridItem] {
+        let column = GridItem(.flexible(minimum: 0, maximum: .infinity))
+        return isIPad ? [column, column] : [column]
+    }
+    
     func languagesList(of languages: [Language]) -> some View {
         ScrollView {
             VStack{
                 Divider()
-                LazyVGrid(columns:isIPad ?
-                            [GridItem(.flexible(minimum: 0, maximum: .infinity)), GridItem(.flexible(minimum: 0, maximum: .infinity))]
-                            :[GridItem(.flexible(minimum: 0, maximum: .infinity))],
+                LazyVGrid(columns: columns,
                           content: {
                             ForEach(languages) { language in
                                 VStack{
