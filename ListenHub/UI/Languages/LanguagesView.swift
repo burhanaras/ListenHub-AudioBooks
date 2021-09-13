@@ -36,19 +36,20 @@ extension LanguagesView {
         ScrollView {
             VStack{
                 Divider()
-                LazyVGrid(columns: columns,
-                          content: {
-                            ForEach(languages) { language in
-                                VStack{
-                                    NavigationLink(
-                                        destination: Text("Language Details"),
-                                        label: {
-                                            LanguageView(language: language)
-                                        })
-                                    Divider()
-                                }
+                LazyVGrid(
+                    columns: columns,
+                    content: {
+                        ForEach(languages) { language in
+                            VStack{
+                                NavigationLink(
+                                    destination: Text("Language Details"),
+                                    label: {
+                                        LanguageView(language: language)
+                                    })
+                                Divider()
                             }
-                          })
+                        }
+                    })
                 Spacer()
             }
             .navigationTitle("Languages")
@@ -72,7 +73,7 @@ struct LanguageView: View {
                     .foregroundColor(.primary)
                     .opacity(0.6)
             }
-
+            
             Spacer()
         }
         .padding(.horizontal)

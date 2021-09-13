@@ -11,6 +11,7 @@ protocol IRepository {
     func getHomeCollections(completion: @escaping (Result<[Collection], Error>) -> Void)
     func getSimilarContentFor(bookId: String, completion: @escaping (Result<Collection, Error>) -> Void)
     func getLanguages(completion: @escaping (Result<[Language], Error>) -> Void)
+    func getCategories(completion: @escaping (Result<[Category], Error>) -> Void)
 }
 
 

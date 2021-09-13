@@ -20,6 +20,11 @@ class DummyDataRepository: IRepository {
     func getLanguages(completion: @escaping (Result<[Language], Error>) -> Void) {
         completion(.success(languagez(count: 40)))
     }
+    
+    func getCategories(completion: @escaping (Result<[Category], Error>) -> Void) {
+        completion(.success(categoriez(count: 40)))
+    }
+    
     //    MARK: - Methods to generate dummy data
     
     private func collectionz() -> [Collection] {
@@ -50,10 +55,21 @@ class DummyDataRepository: IRepository {
     private func languagez(count: Int) -> [Language] {
         var data = [Language]()
         
-        (0..<count).forEach{ index in
+        (0 ..< count).forEach{ index in
             let language = Language(id: "\(index)", name: "Language \(index)", originalName: "English", flag: "🇺🇸", emoji: "🇺🇸", books: bookz(count: 15))
             data.append(language)
         }
+        return data
+    }
+    
+    private func categoriez(count: Int) -> [Category] {
+        var data = [Category]()
+        
+        (0 ..< count).forEach { index in
+           let category = Category(id: "\(index)", name: "Category \(index)", imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/System-users.svg/1200px-System-users.svg.png")!, books: bookz(count: 30))
+            data.append(category)
+        }
+        
         return data
     }
     
