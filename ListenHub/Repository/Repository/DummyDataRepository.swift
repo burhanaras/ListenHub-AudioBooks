@@ -25,6 +25,13 @@ class DummyDataRepository: IRepository {
         completion(.success(categoriez(count: 40)))
     }
     
+    func search(for query: String, completion: @escaping (Result<[Book], Error>) -> Void) {
+        completion(.success(bookz(count: 120)))
+    }
+    
+    func getSearchHints(completion: @escaping (Result<[String], Error>) -> Void) {
+        completion(.success(["Eternal sunshine of spotless mind", "Animal Farm", "1984", "Tale of two cities"]))
+    }
     //    MARK: - Methods to generate dummy data
     
     private func collectionz() -> [Collection] {

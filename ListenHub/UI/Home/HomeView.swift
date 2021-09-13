@@ -55,35 +55,44 @@ struct ShelfView: View {
             ScrollView(.horizontal, showsIndicators: false){
                 HStack (spacing: 12){
                     ForEach(collection.books){ book in
-                        NavigationLink(
-                            destination: Coordinator.shared.bookDetailView(for: book),
-                            label: {
-                                VStack (alignment: .leading){
-                                    NetworkImage(imageURL: book.imageURL)
-                                    .aspectRatio(1, contentMode: .fit)
-                                    .frame(width: bookDimensions.0, height: bookDimensions.0, alignment: .center)
-                                    .cornerRadius(8)
-                                        .shadow(radius: 8)
-                                    
-                                    Text(book.title)
-                                        .font(.subheadline).bold()
-                                        .foregroundColor(.primary)
-                                        .padding(.bottom, 2)
-                                    
-                                    Text(book.author.name)
-                                        .font(.subheadline).bold()
-                                        .foregroundColor(.primary)
-                                        .opacity(0.6)
-                                    
-                                }
-                                .frame(width: bookDimensions.0, height: bookDimensions.1, alignment: .leading)
-
-                            })
+                        BookView(book: book)
                     }
                 }
                 .padding([.leading, .bottom])
             }
         }
+    }
+}
+
+struct BookView: View {
+    let book: Book
+    let bookDimensions: (CGFloat, CGFloat) = (UIDevice.current.model == "iPad") ? (CGFloat(220), CGFloat(330)) : (CGFloat(140), CGFloat(220))
+    
+    var body: some View {
+        NavigationLink(
+            destination: Coordinator.shared.bookDetailView(for: book),
+            label: {
+                VStack (alignment: .leading){
+                    NetworkImage(imageURL: book.imageURL)
+                    .aspectRatio(1, contentMode: .fit)
+                    .frame(width: bookDimensions.0, height: bookDimensions.0, alignment: .center)
+                    .cornerRadius(8)
+                    .shadow(radius: 4)
+                    
+                    Text(book.title)
+                        .font(.subheadline).bold()
+                        .foregroundColor(.primary)
+                        .padding(.bottom, 2)
+                    
+                    Text(book.author.name)
+                        .font(.subheadline).bold()
+                        .foregroundColor(.primary)
+                        .opacity(0.6)
+                    
+                }
+                .frame(width: bookDimensions.0, height: bookDimensions.1, alignment: .leading)
+
+            })
     }
 }
 

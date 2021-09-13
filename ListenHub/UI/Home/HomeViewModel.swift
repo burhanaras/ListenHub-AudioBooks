@@ -8,7 +8,7 @@
 import Foundation
 
 class HomeViewModel: ObservableObject {
-    @Published var data: Result<[Collection], Error>? = .none
+    @Published private(set) var data: Result<[Collection], Error>? = .none
     private let repository: IRepository
     
     init(repository: IRepository) {

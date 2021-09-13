@@ -8,7 +8,7 @@
 import Foundation
 
 class LanguagesViewModel: ObservableObject {
-    @Published var data: Result<[Language], Error>? = .none
+    @Published private(set) var data: Result<[Language], Error>? = .none
     
     private let repository = DummyDataRepository()
     

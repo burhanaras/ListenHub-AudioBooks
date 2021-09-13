@@ -12,6 +12,8 @@ protocol IRepository {
     func getSimilarContentFor(bookId: String, completion: @escaping (Result<Collection, Error>) -> Void)
     func getLanguages(completion: @escaping (Result<[Language], Error>) -> Void)
     func getCategories(completion: @escaping (Result<[Category], Error>) -> Void)
+    func search(for query: String, completion: @escaping (Result<[Book], Error>) -> Void)
+    func getSearchHints(completion: @escaping (Result<[String], Error>) -> Void)
 }
 
 

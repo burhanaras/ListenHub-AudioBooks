@@ -69,6 +69,17 @@ struct CategoryView: View {
 
 struct CategoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        CategoriesView(viewModel: CategoriesViewModel(repository: DummyDataRepository()))
+        Group {
+            
+            CategoriesView(viewModel: CategoriesViewModel(repository: DummyDataRepository()))
+                .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
+            
+            CategoriesView(viewModel: CategoriesViewModel(repository: DummyDataRepository()))
+                .previewDevice(PreviewDevice(rawValue: "iPad Pro"))
+            
+            CategoryView(category: Category(id: "0", name: "Category", imageURL: dummyBook.imageURL, books: [dummyBook]))
+                .previewLayout(.sizeThatFits)
+
+        }
     }
 }

@@ -28,6 +28,8 @@
 		94AE0A2D26EE602900E8CD7B /* LanguagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A2C26EE602900E8CD7B /* LanguagesViewModel.swift */; };
 		94AE0A2F26EF450400E8CD7B /* CategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A2E26EF450400E8CD7B /* CategoriesView.swift */; };
 		94AE0A3126EF451100E8CD7B /* CategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A3026EF451100E8CD7B /* CategoriesViewModel.swift */; };
+		94AE0A3326EF4B8F00E8CD7B /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A3226EF4B8F00E8CD7B /* SearchView.swift */; };
+		94AE0A3526EF4BD700E8CD7B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AE0A3426EF4BD700E8CD7B /* SearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		94AE0A2C26EE602900E8CD7B /* LanguagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguagesViewModel.swift; sourceTree = "<group>"; };
 		94AE0A2E26EF450400E8CD7B /* CategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesView.swift; sourceTree = "<group>"; };
 		94AE0A3026EF451100E8CD7B /* CategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewModel.swift; sourceTree = "<group>"; };
+		94AE0A3226EF4B8F00E8CD7B /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		94AE0A3426EF4BD700E8CD7B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +193,8 @@
 		94AE0A0326EA89F600E8CD7B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				94AE0A3226EF4B8F00E8CD7B /* SearchView.swift */,
+				94AE0A3426EF4BD700E8CD7B /* SearchViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -339,10 +345,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				94AE0A0E26EA8CFC00E8CD7B /* Book.swift in Sources */,
+				94AE0A3326EF4B8F00E8CD7B /* SearchView.swift in Sources */,
 				94AE0A1226EA984500E8CD7B /* HomeViewModel.swift in Sources */,
 				94AE0A2426EE021B00E8CD7B /* BookDetailViewModel.swift in Sources */,
 				94AE0A2B26EE601000E8CD7B /* LanguagesView.swift in Sources */,
 				94AE0A1026EA8DB400E8CD7B /* Category.swift in Sources */,
+				94AE0A3526EF4BD700E8CD7B /* SearchViewModel.swift in Sources */,
 				94AE0A0C26EA8B6700E8CD7B /* HomeView.swift in Sources */,
 				94AE0A2F26EF450400E8CD7B /* CategoriesView.swift in Sources */,
 				94AE0A2D26EE602900E8CD7B /* LanguagesViewModel.swift in Sources */,

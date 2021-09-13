@@ -16,7 +16,7 @@ struct ContentView: View {
                     Text("Home")
                 }.tag(0)
             
-            Text("Search")
+            SearchView(viewModel: SearchViewModel(repository: DummyDataRepository()))
                 .tabItem {
                     Image(systemName: "magnifyingglass")
                     Text("Search")

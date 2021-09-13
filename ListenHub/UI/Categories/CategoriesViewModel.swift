@@ -7,7 +7,7 @@
 
 import Foundation
 class CategoriesViewModel: ObservableObject {
-    @Published var data: Result<[Category], Error>? = .none
+    @Published private(set) var data: Result<[Category], Error>? = .none
     private let repository: IRepository
     
     init(repository: IRepository) {
