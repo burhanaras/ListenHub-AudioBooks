@@ -43,9 +43,10 @@ extension SearchView {
         HStack {
             HStack {
                 Image(systemName: "magnifyingglass").foregroundColor(.secondary)
-                TextField("Enter name or number", text: $viewModel.query, onEditingChanged: { isEditing in
+                TextField("Search..", text: $viewModel.query, onEditingChanged: { isEditing in
                     self.showCancelButton = true
                 })
+                
                 
                 Button(action: {
                     viewModel.query = ""
@@ -56,8 +57,10 @@ extension SearchView {
                 }
             }
             .padding(8)
-            .background(Color.black.opacity(0.2))
+            .padding(.horizontal)
+            .background(Color(.systemGray6))
             .cornerRadius(8)
+            .padding(.horizontal)
             
             if self.showCancelButton  {
                 Button("Cancel") {
@@ -78,8 +81,9 @@ extension SearchView {
                     .padding(.vertical, 4)
                     .foregroundColor(.accentColor)
                     .onTapGesture {
-                    viewModel.query = hint
-                }
+                        viewModel.query = hint
+                    }
+                Divider().padding(.horizontal)
             }
         }
     }
