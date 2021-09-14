@@ -18,16 +18,20 @@ enum SearchViewState {
 class SearchViewModel: ObservableObject {
     @Published var query: String = "" {
         didSet {
+            searchTimer?.invalidate()
             if query.isEmpty {
                 self.status = SearchViewState.showHints(hints)
             } else {
-                search(for: query)
+                if query.count >= 3 {
+                    searchTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(search), userInfo: nil, repeats: false)
+                }
             }
         }
     }
     
     @Published private(set) var status: SearchViewState = SearchViewState.loading
     private var hints = [String]()
+    private var searchTimer: Timer?
     
     private let repository: IRepository
     
@@ -50,10 +54,15 @@ class SearchViewModel: ObservableObject {
         }
     }
     
-    func search(for query: String) {
+    @objc func search() {
         self.status = SearchViewState.searching
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.repository.search(for: query) { [unowned self] result in
+            self.repository.search(for: self.query) { [unowned self] result in
+                switch self.status {
+                case SearchViewState.searching: break
+                default: return
+                }
+                
                 switch result {
                 case let .success(books):
                     self.status = SearchViewState.results(books)
@@ -62,5 +71,9 @@ class SearchViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func cancel(){
+        searchTimer?.invalidate()
     }
 }

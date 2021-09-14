@@ -96,11 +96,43 @@ struct BookView: View {
     }
 }
 
+struct AdaptiveBookView: View {
+    let book: Book
+    var body: some View {
+        NavigationLink(
+            destination: Coordinator.shared.bookDetailView(for: book),
+            label: {
+                VStack (alignment: .leading){
+                    NetworkImage(imageURL: book.imageURL)
+                    .aspectRatio(1, contentMode: .fit)
+                        .frame(maxWidth: .infinity)
+                    .cornerRadius(8)
+                    .shadow(radius: 4)
+                    
+                    Text(book.title)
+                        .font(.subheadline).bold()
+                        .foregroundColor(.primary)
+                        .padding(.bottom, 2)
+                    
+                    Text(book.author.name)
+                        .font(.subheadline).bold()
+                        .foregroundColor(.primary)
+                        .opacity(0.6)
+                    
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            })
+    }
+}
+
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             HomeView(viewModel: HomeViewModel(repository: DummyDataRepository()))
             ShelfView(collection: Collection(id: "", title: "Newest Books", books: [dummyBook]))
+                .previewLayout(.sizeThatFits)
+            AdaptiveBookView(book: dummyBook)
                 .previewLayout(.sizeThatFits)
         }
     }

@@ -15,6 +15,7 @@ struct SearchView: View {
         NavigationView {
             VStack {
                 searchBar()
+                    .padding(.bottom)
                 
                 switch viewModel.status {
                 case .loading:
@@ -24,14 +25,16 @@ struct SearchView: View {
                 case .searching:
                     ProgressView()
                 case let .results(books):
-                    BookListView(books: books)
+                    BookGridView(books: books)
                 case let .failure(error):
                     ErrorView(error: error)
                 }
                 Spacer()
             }
-            .navigationBarTitle("Search")
+            .navigationBarTitle("")
+            .navigationBarHidden(true)
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
@@ -68,29 +71,31 @@ extension SearchView {
     
     func hintsList(hints: [String]) -> some View {
         VStack {
-            List{
-                ForEach(hints, id: \.self){ hint in
-                    Text(hint).onTapGesture {
-                        viewModel.query = hint
-                    }
+            ForEach(hints, id: \.self){ hint in
+                Text(hint)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal)
+                    .padding(.vertical, 4)
+                    .foregroundColor(.accentColor)
+                    .onTapGesture {
+                    viewModel.query = hint
                 }
             }
-            Spacer()
-            HStack{Spacer()} 
         }
     }
 }
 
-struct BookListView: View {
+struct BookGridView: View {
     let books: [Book]
     let columns = [GridItem(.adaptive(minimum: isIPad ? 220 : 140, maximum: .infinity))]
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            LazyVGrid(columns: columns, alignment: .center, spacing: 8, pinnedViews: [], content: {
+            LazyVGrid(columns: columns, alignment: .center, spacing: 24, pinnedViews: [], content: {
                 ForEach(books) { book in
-                    BookView(book: book)
+                    AdaptiveBookView(book: book)
                 }
             })
+            .padding(.horizontal)
         }
     }
 }
