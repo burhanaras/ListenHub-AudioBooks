@@ -50,7 +50,7 @@ struct CategoryView: View {
     var body: some View {
         VStack {
             NavigationLink(
-                destination: Text("Categories Detail"),
+                destination: Coordinator.shared.collectionDetail(for: category),
                 label: {
                     HStack {
                         NetworkImage(imageURL: category.imageURL)

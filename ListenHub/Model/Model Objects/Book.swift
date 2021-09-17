@@ -19,9 +19,18 @@ struct Book: Identifiable {
     let author: Author
     let imageURL: URL
     let description: String
+    let length: String
+    let chapters: [Chapter]
 }
 
 struct Author: Identifiable {
     let id: String
     let name: String
+}
+
+struct Chapter: Identifiable {
+    let id: String
+    let title: String
+    let playUrl: String
+    let length: String
 }

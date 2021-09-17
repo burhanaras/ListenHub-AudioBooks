@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookDetailView: View {
     @ObservedObject var viewModel: BookDetailViewModel
+    @State var showPlayerSheet: Bool = false
     private let isIPad: Bool = (UIDevice.current.model == "iPad")
     
     init(viewModel: BookDetailViewModel) {
@@ -51,7 +52,7 @@ extension BookDetailView{
                         .opacity(0.6)
                     
                     Text("★ ★ ★ ★ ★").foregroundColor(.orange).padding(.bottom)
-                    Text("📖 5 Chapters - ⏳ 2 Hours 13 Minutes")
+                    Text(book.length)
                         .font(.subheadline)
                         .padding(.bottom)
                     
@@ -66,6 +67,9 @@ extension BookDetailView{
                 Spacer()
             }
         }
+        .sheet(isPresented: $showPlayerSheet, content: {
+           PlayerView(viewModel: PlayerviewModel())
+        })
         
     }
     
@@ -84,7 +88,8 @@ extension BookDetailView{
     
     var playButton: some View{
         Button(action: {
-            
+            showPlayerSheet.toggle()
+            viewModel.togglePlay()
         }, label: {
             VStack{
                 if viewModel.isPlaying {

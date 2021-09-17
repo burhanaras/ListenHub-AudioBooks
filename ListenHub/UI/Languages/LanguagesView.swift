@@ -42,7 +42,7 @@ extension LanguagesView {
                         ForEach(languages) { language in
                             VStack{
                                 NavigationLink(
-                                    destination: Text("Language Details"),
+                                    destination: Coordinator.shared.collectionDetail(for: language),
                                     label: {
                                         LanguageView(language: language)
                                     })

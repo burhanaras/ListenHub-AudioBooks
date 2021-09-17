@@ -32,6 +32,15 @@ class DummyDataRepository: IRepository {
     func getSearchHints(completion: @escaping (Result<[String], Error>) -> Void) {
         completion(.success(["Eternal sunshine of spotless mind", "Animal Farm", "1984", "Tale of two cities"]))
     }
+    
+    func getCategoryDetail(completion: @escaping (Result<[Book], Error>) -> Void) {
+        completion(.success(bookz(count: 26)))
+    }
+    
+    func getLanguageDetail(completion: @escaping (Result<[Book], Error>) -> Void) {
+        completion(.success(bookz(count: 25)))
+    }
+    
     //    MARK: - Methods to generate dummy data
     
     private func collectionz() -> [Collection] {
@@ -53,7 +62,8 @@ class DummyDataRepository: IRepository {
                 The year 1984 has come and gone, yet George Orwell's nightmare vision of the world we were becoming in 1949 is still the great modern classic portrait of a negative Utopia.
                 
                 ©1949 Harcourt Brace and Company, renewed 1977 Sonia Brownell Orwell (P)2007 Blackstone Audio Inc.
-                """)
+                """,
+                            length: "📖 10 Chapters - ⏳ 2 Hours 13 Minutes", chapters: (0...9).map{Chapter(id: "\($0)", title: "Chapter \($0)", playUrl: "", length: "25:50")})
             books.append(book)
         }
         return books

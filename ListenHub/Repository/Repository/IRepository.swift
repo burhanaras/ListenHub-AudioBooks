@@ -14,6 +14,8 @@ protocol IRepository {
     func getCategories(completion: @escaping (Result<[Category], Error>) -> Void)
     func search(for query: String, completion: @escaping (Result<[Book], Error>) -> Void)
     func getSearchHints(completion: @escaping (Result<[String], Error>) -> Void)
+    func getCategoryDetail(completion: @escaping (Result<[Book], Error>) -> Void)
+    func getLanguageDetail(completion: @escaping (Result<[Book], Error>) -> Void)
 }
 
 

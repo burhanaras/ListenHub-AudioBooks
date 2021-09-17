@@ -8,9 +8,9 @@
 import Foundation
 
 class BookDetailViewModel: ObservableObject {
-    @Published var book : Result<Book, Error>? = .none
-    @Published var similarContent: Result<Collection, Error>? = .none
-    @Published var isPlaying: Bool = false
+    @Published private(set) var book : Result<Book, Error>? = .none
+    @Published private(set) var similarContent: Result<Collection, Error>? = .none
+    @Published private(set) var isPlaying: Bool = false
     
     private let repository: IRepository = DummyDataRepository()
     
@@ -25,4 +25,10 @@ class BookDetailViewModel: ObservableObject {
         }
     }
 
+}
+
+extension BookDetailViewModel {
+    func togglePlay() {
+        
+    }
 }
