@@ -33,7 +33,7 @@
 		94F87E7D26F0DBC600682FB1 /* CollectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F87E7C26F0DBC600682FB1 /* CollectionDetailView.swift */; };
 		94F87E7F26F0DBD300682FB1 /* CollectionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F87E7E26F0DBD300682FB1 /* CollectionDetailViewModel.swift */; };
 		94F87E8326F26D1C00682FB1 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F87E8226F26D1C00682FB1 /* PlayerView.swift */; };
-		94F87E8526F26D2E00682FB1 /* PlayerviewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F87E8426F26D2E00682FB1 /* PlayerviewModel.swift */; };
+		94F87E8526F26D2E00682FB1 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F87E8426F26D2E00682FB1 /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,7 @@
 		94F87E7C26F0DBC600682FB1 /* CollectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailView.swift; sourceTree = "<group>"; };
 		94F87E7E26F0DBD300682FB1 /* CollectionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewModel.swift; sourceTree = "<group>"; };
 		94F87E8226F26D1C00682FB1 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
-		94F87E8426F26D2E00682FB1 /* PlayerviewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerviewModel.swift; sourceTree = "<group>"; };
+		94F87E8426F26D2E00682FB1 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,7 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				94F87E8226F26D1C00682FB1 /* PlayerView.swift */,
-				94F87E8426F26D2E00682FB1 /* PlayerviewModel.swift */,
+				94F87E8426F26D2E00682FB1 /* PlayerViewModel.swift */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 				94AE0A1026EA8DB400E8CD7B /* Category.swift in Sources */,
 				94AE0A3526EF4BD700E8CD7B /* SearchViewModel.swift in Sources */,
 				94AE0A0C26EA8B6700E8CD7B /* HomeView.swift in Sources */,
-				94F87E8526F26D2E00682FB1 /* PlayerviewModel.swift in Sources */,
+				94F87E8526F26D2E00682FB1 /* PlayerViewModel.swift in Sources */,
 				94AE0A2F26EF450400E8CD7B /* CategoriesView.swift in Sources */,
 				94F87E7D26F0DBC600682FB1 /* CollectionDetailView.swift in Sources */,
 				94AE0A2D26EE602900E8CD7B /* LanguagesViewModel.swift in Sources */,

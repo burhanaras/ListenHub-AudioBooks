@@ -68,7 +68,7 @@ extension BookDetailView{
             }
         }
         .sheet(isPresented: $showPlayerSheet, content: {
-           PlayerView(viewModel: PlayerviewModel())
+           PlayerView(viewModel: PlayerViewModel())
         })
         
     }

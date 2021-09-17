@@ -6,8 +6,8 @@
 //
 
 import Foundation
-class PlayerviewModel: ObservableObject {
-    public static let shared = PlayerviewModel()
+class PlayerViewModel: ObservableObject {
+    public static let shared = PlayerViewModel()
     private var currentlyPlayingBookIdAndChapterId: (String, String) = ("", "")
     
     @Published var book: Book = dummyBook

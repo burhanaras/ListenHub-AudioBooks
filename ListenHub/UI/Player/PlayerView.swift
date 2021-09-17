@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct PlayerView: View {
-    @ObservedObject var viewModel: PlayerviewModel
+    @ObservedObject var viewModel: PlayerViewModel
     
-    init(viewModel: PlayerviewModel) {
+    init(viewModel: PlayerViewModel) {
         self.viewModel = viewModel
     }
     
@@ -69,6 +69,6 @@ extension PlayerView {
 
 struct PlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayerView(viewModel: PlayerviewModel())
+        PlayerView(viewModel: PlayerViewModel())
     }
 }
