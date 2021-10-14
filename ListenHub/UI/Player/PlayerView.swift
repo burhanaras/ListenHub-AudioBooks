@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct PlayerView: View {
-    @ObservedObject var viewModel: PlayerViewModel
+    @ObservedObject var viewModel: NewPlayerViewModel
     
-    init(viewModel: PlayerViewModel) {
+    init(viewModel: NewPlayerViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
-        VStack {
-            player
-            playerControls
-            chapters
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack {
+                player
+                playerControls
+                chapters
+            }
         }
     }
 }
@@ -47,20 +49,84 @@ extension PlayerView {
                 .font(.subheadline)
                 .padding(.bottom)
         }
+        .padding(.top)
     }
-    
+
     var playerControls: some View {
-        Text("Player Controls")
+        VStack {
+            Slider(value: $viewModel.progress, in: 0...100)
+                .padding()
+            
+            HStack{
+                Button(action: {
+                    viewModel.skipToPreviousChapter()
+                }){
+                    Image(systemName: "backward.end")
+                        .font(Font.body.weight(.medium))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                
+                Button(action: {
+                    viewModel.skipBackward()
+                }){
+                    Text("-15s")
+                        .font(Font.body.weight(.medium))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                
+                Button(action: {
+                    viewModel.togglePlay()
+                }){
+                    ZStack{
+                        Circle()
+                            .frame(width: 80, height: 80)
+                            .foregroundColor(.green)
+                        Image(systemName: viewModel.isPlaying ? "pause" : "play.fill")
+                            .foregroundColor(.white)
+                            .font(Font.largeTitle.weight(.bold))
+                            .frame(width: 80, height: 80)
+                    }
+                }
+                
+                Button(action: {
+                    viewModel.skipForward()
+                }){
+                    Text("+15s")
+                        .font(Font.body.weight(.medium))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                
+                Button(action: {
+                    viewModel.skipToNextChapter()
+                }){
+                    Image(systemName: "forward.end")
+                        .font(Font.body.weight(.medium))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                
+            }
+            .padding(.top, 24)
+            .padding(.bottom, 24)
+        }
     }
     
     var chapters: some View {
         VStack{
-            ForEach (viewModel.book.chapters){ chapter in
+            ForEach (viewModel.chapters.indices, id:\.self){ index in
                 HStack {
-                    Text(chapter.title)
+                    if index == viewModel.currentChanpterIndex {
+                        Image(systemName: "waveform.circle").frame(width: 24, height: 24)
+                    } else {
+                        Image(systemName: "waveform.circle").frame(width: 24, height: 24).hidden()
+                    }
+                    Text(viewModel.chapters[index].title)
                     Spacer()
-                    Text(chapter.length)
+                    Text(viewModel.chapters[index].length)
                 }
+                .onTapGesture {
+                    viewModel.skip(to: index)
+                }
+                Divider()
             }
         }
         .padding()
@@ -68,7 +134,8 @@ extension PlayerView {
 }
 
 struct PlayerView_Previews: PreviewProvider {
+    static let player = DummyPlayer()
     static var previews: some View {
-        PlayerView(viewModel: PlayerViewModel())
+        PlayerView(viewModel: NewPlayerViewModel(player: player))
     }
 }

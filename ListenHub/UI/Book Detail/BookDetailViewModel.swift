@@ -13,9 +13,11 @@ class BookDetailViewModel: ObservableObject {
     @Published private(set) var isPlaying: Bool = false
     
     private let repository: IRepository = DummyDataRepository()
+    let player: Player
     
-    init(book: Book) {
+    init(book: Book, player: Player) {
         self.book = Result<Book, Error>.success(book)
+        self.player = player
         downloadSimilarContent(for: book.id)
     }
     
@@ -24,11 +26,11 @@ class BookDetailViewModel: ObservableObject {
             self.similarContent = similarBooks
         }
     }
-
+    
 }
 
 extension BookDetailViewModel {
-    func togglePlay() {
-        
+    func play() {
+        player.prepare(book: try! book?.get() as! Book)
     }
 }

@@ -63,7 +63,7 @@ class DummyDataRepository: IRepository {
                 
                 ©1949 Harcourt Brace and Company, renewed 1977 Sonia Brownell Orwell (P)2007 Blackstone Audio Inc.
                 """,
-                            length: "📖 10 Chapters - ⏳ 2 Hours 13 Minutes", chapters: (0...9).map{Chapter(id: "\($0)", title: "Chapter \($0)", playUrl: "", length: "25:50")})
+                            length: "📖 10 Chapters - ⏳ 2 Hours 13 Minutes", chapters: (0...9).map{Chapter(id: "\($0)", title: "Chapter \($0)", playUrl: "https://samples.audible.com/or/orig/001329/or_orig_001329_sample.mp3", length: "25:50")})
             books.append(book)
         }
         return books

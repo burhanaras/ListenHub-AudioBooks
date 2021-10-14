@@ -68,7 +68,8 @@ extension BookDetailView{
             }
         }
         .sheet(isPresented: $showPlayerSheet, content: {
-           PlayerView(viewModel: PlayerViewModel())
+          //  PlayerView(viewModel: NewPlayerViewModel(player: DummyPlayer.shared))
+            Coordinator.shared.playerView()
         })
         
     }
@@ -89,7 +90,7 @@ extension BookDetailView{
     var playButton: some View{
         Button(action: {
             showPlayerSheet.toggle()
-            viewModel.togglePlay()
+            viewModel.play()
         }, label: {
             VStack{
                 if viewModel.isPlaying {
@@ -135,6 +136,6 @@ struct ColorfulBand: View {
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView(viewModel: BookDetailViewModel(book: dummyBook))
+        BookDetailView(viewModel: BookDetailViewModel(book: dummyBook, player: DummyPlayer.shared))
     }
 }

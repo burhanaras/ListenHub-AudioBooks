@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Collection: Identifiable {
     let id: String
@@ -33,4 +34,12 @@ struct Chapter: Identifiable {
     let title: String
     let playUrl: String
     let length: String
+}
+
+
+
+extension Chapter {
+    func toAqPlayerItemInfo() -> AQPlayerItemInfo {
+        return AQPlayerItemInfo(id: Int(id) ?? 0, url: URL(string: playUrl)!, title: title, albumTitle: title, coverImage: UIImage(named: ""), startAt: 0)
+    }
 }
