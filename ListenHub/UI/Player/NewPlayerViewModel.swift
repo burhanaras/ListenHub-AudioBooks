@@ -7,28 +7,27 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class NewPlayerViewModel: ObservableObject{
     @Published var book: Book = dummyBook
     @Published var chapters: [Chapter] = dummyBook.chapters
     
     @Published var currentChanpterIndex: Int = 0
-    @Published var progress: Double = 0 {
-        didSet {
-            seek(to: Float(progress))
-        }
-    }
+    @Published var progress: Double = 0
     @Published var isPlaying: Bool = false
     
     private let player: Player
     private var cancellables: Set<AnyCancellable> = []
     
+    
+    var isDragging = false
+    
     init(player: Player){
         self.player = player
         
-        
         self.player.progressPublisher.sink(receiveValue: { [unowned self] prg in
-            print("Progress is \(prg)")
+            guard isDragging == false else { return }
             self.progress = Double(prg)
         })
             .store(in: &cancellables)
@@ -75,6 +74,7 @@ class NewPlayerViewModel: ObservableObject{
     }
     
     func seek(to percent: Float) {
+        print("Seek to \(percent)")
         self.player.seek(to: percent)
     }
     

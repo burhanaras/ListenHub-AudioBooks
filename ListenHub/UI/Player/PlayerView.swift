@@ -51,11 +51,22 @@ extension PlayerView {
         }
         .padding(.top)
     }
-
+    
     var playerControls: some View {
         VStack {
             Slider(value: $viewModel.progress, in: 0...100)
                 .padding()
+                .gesture(DragGesture()
+                            .onChanged({ (value) in
+                    self.viewModel.isDragging = true
+                    self.viewModel.progress = value.location.x / UIScreen.main.bounds.width * 100
+                })
+                            .onEnded({ (value) in
+                    print("Ended in \(value)")
+                    viewModel.isDragging = false
+                    viewModel.seek(to: Float(value.location.x / UIScreen.main.bounds.width) * 100)
+                })
+                )
             
             HStack{
                 Button(action: {

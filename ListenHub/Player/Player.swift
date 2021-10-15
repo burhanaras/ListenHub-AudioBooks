@@ -67,8 +67,8 @@ class DummyPlayer: Player {
     }
     
     func seek(to percent: Float) {
-        let newValue = max(min(percent, 100), 0)
-        progress.send(Int(newValue))
+        let safePercent = max(min(percent, 100), 0)
+        progress.send(Int(safePercent))
     }
     
     func skipToNextChapter() {
