@@ -9,7 +9,7 @@ import Foundation
 import Combine
 import UIKit
 
-class NewPlayerViewModel: ObservableObject{
+class PlayerViewModel: ObservableObject{
     @Published var book: Book = dummyBook
     @Published var chapters: [Chapter] = dummyBook.chapters
     

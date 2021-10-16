@@ -29,6 +29,6 @@ final class Coordinator{
     }
     
     func playerView() -> PlayerView {
-        return PlayerView(viewModel: NewPlayerViewModel(player: player))
+        return PlayerView(viewModel: PlayerViewModel(player: player))
     }
 }
