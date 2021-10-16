@@ -328,6 +328,8 @@ extension AQPlayerManager {
         self.qPlayer?.seek(to: CMTime(seconds: toTime, preferredTimescale: Defaults.preferredTimescale) , completionHandler: { (value) in
             if playAfterSeek {
                 self.play()
+            } else {
+                self.status = .paused
             }
         })
     }

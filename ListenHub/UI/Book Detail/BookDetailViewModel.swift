@@ -31,6 +31,6 @@ class BookDetailViewModel: ObservableObject {
 
 extension BookDetailViewModel {
     func play() {
-        player.prepare(book: try! book?.get() as! Book)
+        player.prepare(book: try! book?.get() as! Book, startFrom: 0, playAfterSetup: true)
     }
 }

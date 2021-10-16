@@ -11,7 +11,7 @@ import SwiftUI
 final class Coordinator{
     public static let shared = Coordinator()
     private let repository: IRepository = DummyDataRepository()
-    private let player = DummyPlayer.shared
+    private let player = ListenHubPlayer()
     
     func bookDetailView(for book: Book) -> BookDetailView {
         let viewModel = BookDetailViewModel(book: book, player: player)
