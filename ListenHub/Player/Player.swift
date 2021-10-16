@@ -38,7 +38,6 @@ class ListenHubPlayer: Player, AQPlayerDelegate {
     func aQPlayerManager(_ playerManager: AQPlayerManager, progressDidUpdate percentage: Double) {
         print("progressDidUpdate: \(percentage)")
         self.progress.send(Int(percentage * 100))
-       print("\( Int(playerManager.currentTime)) / \(playerManager.duration)")
         self.currentTime.send(Int(playerManager.currentTime).toHHmmSS())
         self.duration.send(Int(playerManager.duration).toHHmmSS())
         

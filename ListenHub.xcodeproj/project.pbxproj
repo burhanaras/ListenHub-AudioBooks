@@ -43,7 +43,6 @@
 		94F87E7D26F0DBC600682FB1 /* CollectionDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F87E7C26F0DBC600682FB1 /* CollectionDetailView.swift */; };
 		94F87E7F26F0DBD300682FB1 /* CollectionDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F87E7E26F0DBD300682FB1 /* CollectionDetailViewModel.swift */; };
 		94F87E8326F26D1C00682FB1 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F87E8226F26D1C00682FB1 /* PlayerView.swift */; };
-		94F87E8526F26D2E00682FB1 /* PlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F87E8426F26D2E00682FB1 /* PlayerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,7 +83,6 @@
 		94F87E7C26F0DBC600682FB1 /* CollectionDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailView.swift; sourceTree = "<group>"; };
 		94F87E7E26F0DBD300682FB1 /* CollectionDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionDetailViewModel.swift; sourceTree = "<group>"; };
 		94F87E8226F26D1C00682FB1 /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
-		94F87E8426F26D2E00682FB1 /* PlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +118,6 @@
 			children = (
 				94AE09FD26EA891200E8CD7B /* App */,
 				9451BB7127062C8100653C3F /* Player */,
-				9451BB632704FA4400653C3F /* AVQueuePlayer */,
 				94AE0A2726EE150300E8CD7B /* Coordinator */,
 				94AE09FB26EA88FA00E8CD7B /* UI */,
 				94AE09FE26EA891C00E8CD7B /* Model */,
@@ -168,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				9451BB7227062C9300653C3F /* Player.swift */,
+				9451BB632704FA4400653C3F /* AVQueuePlayer */,
 			);
 			path = Player;
 			sourceTree = "<group>";
@@ -265,7 +263,6 @@
 			isa = PBXGroup;
 			children = (
 				94F87E8226F26D1C00682FB1 /* PlayerView.swift */,
-				94F87E8426F26D2E00682FB1 /* PlayerViewModel.swift */,
 				9451BB74270C52FA00653C3F /* NewPlayerViewModel.swift */,
 			);
 			path = Player;
@@ -434,7 +431,6 @@
 				94AE0A0C26EA8B6700E8CD7B /* HomeView.swift in Sources */,
 				9451BB6D2704FA8400653C3F /* AAPlayerDelegate.swift in Sources */,
 				9451BB7327062C9400653C3F /* Player.swift in Sources */,
-				94F87E8526F26D2E00682FB1 /* PlayerViewModel.swift in Sources */,
 				94AE0A2F26EF450400E8CD7B /* CategoriesView.swift in Sources */,
 				9451BB6E2704FA8400653C3F /* AAPlayerItemInfo.swift in Sources */,
 				94F87E7D26F0DBC600682FB1 /* CollectionDetailView.swift in Sources */,
