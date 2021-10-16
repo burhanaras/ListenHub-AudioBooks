@@ -14,7 +14,7 @@ final class Coordinator{
     private let player = ListenHubPlayer()
     
     func bookDetailView(for book: Book) -> BookDetailView {
-        let viewModel = BookDetailViewModel(book: book, player: player)
+        let viewModel = BookDetailViewModel(repository: repository, book: book, player: player)
         return BookDetailView(viewModel: viewModel)
     }
     

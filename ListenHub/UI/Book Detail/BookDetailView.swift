@@ -68,7 +68,6 @@ extension BookDetailView{
             }
         }
         .sheet(isPresented: $showPlayerSheet, content: {
-          //  PlayerView(viewModel: NewPlayerViewModel(player: DummyPlayer.shared))
             Coordinator.shared.playerView()
         })
         
@@ -93,12 +92,8 @@ extension BookDetailView{
             viewModel.play()
         }, label: {
             VStack{
-                if viewModel.isPlaying {
-                    Label("LISTENING", systemImage: "airpodspro").font(.subheadline.bold())
-                } else {
-                    Label("LISTEN NOW", systemImage: "headphones").font(.subheadline.bold())
-                }
-                
+                Label(viewModel.playbuttonIconAndText.1, systemImage: viewModel.playbuttonIconAndText.0).font(.body.bold())
+                    
                 ColorfulBand()
             }
         })
@@ -130,12 +125,12 @@ struct ColorfulBand: View {
                 .foregroundColor(.purple)
                 .frame(maxWidth: .infinity)
         }
-        .frame(height: 6)
+        .frame(height: 4)
     }
 }
 
 struct BookDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        BookDetailView(viewModel: BookDetailViewModel(book: dummyBook, player: DummyPlayer.shared))
+        BookDetailView(viewModel: BookDetailViewModel(repository:DummyDataRepository(), book: dummyBook, player: DummyPlayer.shared))
     }
 }
