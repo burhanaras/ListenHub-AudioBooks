@@ -69,6 +69,13 @@ extension PlayerView {
                 )
             
             HStack{
+                Text(viewModel.currentTime).bold()
+                Spacer()
+                Text(viewModel.duration).bold()
+            }
+            .padding(.horizontal)
+            
+            HStack{
                 Button(action: {
                     viewModel.skipToPreviousChapter()
                 }){

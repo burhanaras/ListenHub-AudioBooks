@@ -15,6 +15,8 @@ class NewPlayerViewModel: ObservableObject{
     
     @Published var currentChanpterIndex: Int = 0
     @Published var progress: Double = 0
+    @Published var currentTime: String = ""
+    @Published var duration: String = ""
     @Published var isPlaying: Bool = false
     
     private let player: Player
@@ -52,6 +54,16 @@ class NewPlayerViewModel: ObservableObject{
         
         self.player.currentChapterIndexPublisher.sink(receiveValue: { [unowned self] currentChapterIndex in
             self.currentChanpterIndex = currentChapterIndex
+        })
+            .store(in: &cancellables)
+        
+        self.player.currentTimePublisher.sink(receiveValue: { [unowned self] currentTime in
+            self.currentTime = currentTime
+        })
+            .store(in: &cancellables)
+        
+        self.player.durationPublisher.sink(receiveValue: { [unowned self] duration in
+            self.duration = duration
         })
             .store(in: &cancellables)
     }

@@ -14,6 +14,8 @@ protocol Player {
     var playerStatePublisher: AnyPublisher<PlayerState, Never> { get }
     var bookPublisher: AnyPublisher<Book, Never> { get }
     var currentChapterIndexPublisher: AnyPublisher<Int, Never> { get }
+    var currentTimePublisher: AnyPublisher<String, Never> { get }
+    var durationPublisher: AnyPublisher<String, Never> { get }
     
     func prepare(book: Book, startFrom: Int, playAfterSetup: Bool)
     func togglePlay()
@@ -32,8 +34,14 @@ enum PlayerState {
 }
 
 class ListenHubPlayer: Player, AQPlayerDelegate {
+    
     func aQPlayerManager(_ playerManager: AQPlayerManager, progressDidUpdate percentage: Double) {
+        print("progressDidUpdate: \(percentage)")
         self.progress.send(Int(percentage * 100))
+       print("\( Int(playerManager.currentTime)) / \(playerManager.duration)")
+        self.currentTime.send(Int(playerManager.currentTime).toHHmmSS())
+        self.duration.send(Int(playerManager.duration).toHHmmSS())
+        
     }
     
     func aQPlayerManager(_ playerManager: AQPlayerManager, itemDidChange itemIndex: Int) {
@@ -66,22 +74,32 @@ class ListenHubPlayer: Player, AQPlayerDelegate {
     var progressPublisher: AnyPublisher<Int, Never> {
         progress.eraseToAnyPublisher()
     }
-    var progress = CurrentValueSubject<Int, Never> (0)
+    private var progress = CurrentValueSubject<Int, Never> (0)
     
     var playerStatePublisher: AnyPublisher<PlayerState, Never> {
         playerState.eraseToAnyPublisher()
     }
-    var playerState = CurrentValueSubject<PlayerState, Never> (.preparing)
+    private var playerState = CurrentValueSubject<PlayerState, Never> (.preparing)
     
     var bookPublisher: AnyPublisher<Book, Never> {
         book.eraseToAnyPublisher()
     }
-    var book = CurrentValueSubject<Book, Never> (dummyBook)
+    private var book = CurrentValueSubject<Book, Never> (dummyBook)
     
     var currentChapterIndexPublisher: AnyPublisher<Int, Never> {
         currentChapterIndex.eraseToAnyPublisher()
     }
-    var currentChapterIndex = CurrentValueSubject<Int, Never> (0)
+    private var currentChapterIndex = CurrentValueSubject<Int, Never> (0)
+    
+    var currentTimePublisher: AnyPublisher<String, Never> {
+        currentTime.eraseToAnyPublisher()
+    }
+    private var currentTime = CurrentValueSubject<String, Never> ("00:00")
+    
+    var durationPublisher: AnyPublisher<String, Never> {
+        duration.eraseToAnyPublisher()
+    }
+    private var duration = CurrentValueSubject<String, Never> ("00:00")
     
     init(){
         AQPlayerManager.shared.delegate = self
@@ -89,6 +107,7 @@ class ListenHubPlayer: Player, AQPlayerDelegate {
     
     func prepare(book: Book, startFrom: Int, playAfterSetup: Bool) {
         guard book.id != self.book.value.id else { return }
+        self.book.send(book)
         let playerItems = book.chapters.map{ $0.toAqPlayerItemInfo()}
         AQPlayerManager.shared.setup(with: playerItems, startFrom: startFrom, playAfterSetup: playAfterSetup)
     }
