@@ -154,6 +154,8 @@ public final class AQPlayerManager: NSObject {
                     }
                 case .failed:
                     self.status = .failed
+                @unknown default:
+                    break
                 }
             }
             break

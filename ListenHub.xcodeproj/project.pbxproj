@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		943555CD27273E3A0084695F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943725E626CAE2CB00CB240B /* Assets.xcassets */; };
 		943725E326CAE2C800CB240B /* ListenHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943725E226CAE2C800CB240B /* ListenHubApp.swift */; };
-		943725E726CAE2CB00CB240B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943725E626CAE2CB00CB240B /* Assets.xcassets */; };
 		943725EA26CAE2CB00CB240B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943725E926CAE2CB00CB240B /* Preview Assets.xcassets */; };
 		94410A95271B6939000D6F9B /* DummyPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94410A94271B6939000D6F9B /* DummyPlayer.swift */; };
 		94410A98271B8ADB000D6F9B /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94410A97271B8ADB000D6F9B /* Int+Extension.swift */; };
@@ -48,7 +48,7 @@
 /* Begin PBXFileReference section */
 		943725DF26CAE2C800CB240B /* ListenHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListenHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		943725E226CAE2C800CB240B /* ListenHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenHubApp.swift; sourceTree = "<group>"; };
-		943725E626CAE2CB00CB240B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		943725E626CAE2CB00CB240B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ListenHub/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		943725E926CAE2CB00CB240B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		943725EB26CAE2CB00CB240B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94410A94271B6939000D6F9B /* DummyPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyPlayer.swift; sourceTree = "<group>"; };
@@ -403,8 +403,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				943555CD27273E3A0084695F /* Assets.xcassets in Resources */,
 				943725EA26CAE2CB00CB240B /* Preview Assets.xcassets in Resources */,
-				943725E726CAE2CB00CB240B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,6 +575,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ListenHub/Preview Content\"";
 				DEVELOPMENT_TEAM = B27VM6T287;
@@ -597,6 +598,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"ListenHub/Preview Content\"";
 				DEVELOPMENT_TEAM = B27VM6T287;

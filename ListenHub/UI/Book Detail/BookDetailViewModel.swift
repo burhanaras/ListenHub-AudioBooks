@@ -14,7 +14,7 @@ class BookDetailViewModel: ObservableObject {
     @Published private(set) var playbuttonIconAndText: (String, String) = ("headphones", "LISTEN NOW")
     
     private let repository: IRepository
-    let player: Player
+    private let player: Player
     private var cancellables: Set<AnyCancellable> = []
     
     init(repository: IRepository, book: Book, player: Player) {
