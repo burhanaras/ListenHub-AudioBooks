@@ -11,7 +11,8 @@ import Combine
 class BookDetailViewModel: ObservableObject {
     @Published private(set) var book : Result<Book, Error>? = .none
     @Published private(set) var similarContent: Result<Collection, Error>? = .none
-    @Published private(set) var playbuttonIconAndText: (String, String) = ("headphones", "LISTEN NOW")
+    @Published private(set) var playbuttonText: String = "LISTEN NOW"
+    @Published private(set) var showEqualizer: Bool = false
     
     private let repository: IRepository
     private let player: Player
@@ -23,7 +24,8 @@ class BookDetailViewModel: ObservableObject {
         self.player = player
         downloadSimilarContent(for: book.id)
         self.player.bookPublisher.sink(receiveValue: { [unowned self] playingBook in
-            self.playbuttonIconAndText = book.id == playingBook.id ? ("airpodspro", "LISTENING") : ("headphones", "LISTEN NOW")
+            self.playbuttonText = book.id == playingBook.id ? "LISTENING" : "LISTEN NOW"
+            self.showEqualizer = book.id == playingBook.id
         })
             .store(in: &cancellables)
     }

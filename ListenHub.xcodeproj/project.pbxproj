@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		943555CD27273E3A0084695F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943725E626CAE2CB00CB240B /* Assets.xcassets */; };
+		943555CF27286F830084695F /* EqualizerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943555CE27286F830084695F /* EqualizerView.swift */; };
 		943725E326CAE2C800CB240B /* ListenHubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 943725E226CAE2C800CB240B /* ListenHubApp.swift */; };
 		943725EA26CAE2CB00CB240B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 943725E926CAE2CB00CB240B /* Preview Assets.xcassets */; };
 		94410A95271B6939000D6F9B /* DummyPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94410A94271B6939000D6F9B /* DummyPlayer.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		943555CE27286F830084695F /* EqualizerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EqualizerView.swift; sourceTree = "<group>"; };
 		943725DF26CAE2C800CB240B /* ListenHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ListenHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		943725E226CAE2C800CB240B /* ListenHubApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenHubApp.swift; sourceTree = "<group>"; };
 		943725E626CAE2CB00CB240B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ListenHub/Assets.xcassets; sourceTree = SOURCE_ROOT; };
@@ -219,6 +221,7 @@
 				94AE0A1326ED081E00E8CD7B /* ErrorView.swift */,
 				94AE0A1726ED0C1500E8CD7B /* LoadingView.swift */,
 				94AE0A1C26ED0E2800E8CD7B /* NetworkImage.swift */,
+				943555CE27286F830084695F /* EqualizerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -446,6 +449,7 @@
 				94F87E8326F26D1C00682FB1 /* PlayerView.swift in Sources */,
 				9451BB6B2704FA8400653C3F /* AAQueuePlayer.swift in Sources */,
 				943725E326CAE2C800CB240B /* ListenHubApp.swift in Sources */,
+				943555CF27286F830084695F /* EqualizerView.swift in Sources */,
 				94AE0A3126EF451100E8CD7B /* CategoriesViewModel.swift in Sources */,
 				94AE0A1826ED0C1500E8CD7B /* LoadingView.swift in Sources */,
 			);

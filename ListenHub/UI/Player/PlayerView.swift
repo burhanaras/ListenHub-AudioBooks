@@ -133,13 +133,15 @@ extension PlayerView {
             ForEach (viewModel.chapters.indices, id:\.self){ index in
                 HStack {
                     if index == viewModel.currentChanpterIndex {
-                        Image(systemName: "waveform.circle").frame(width: 24, height: 24)
+                        EqualizerView(barCount: 4, color: Color.blue, isPlaying: .constant(true)).frame(width: 24, height: 24, alignment: .center)
                     } else {
                         Image(systemName: "waveform.circle").frame(width: 24, height: 24).hidden()
                     }
                     Text(viewModel.chapters[index].title)
+                        .foregroundColor(index == viewModel.currentChanpterIndex ? Color.blue : Color.primary)
                     Spacer()
                     Text(viewModel.chapters[index].length)
+                        .foregroundColor(index == viewModel.currentChanpterIndex ? Color.blue : Color.primary)
                 }
                 .onTapGesture {
                     viewModel.skip(to: index)

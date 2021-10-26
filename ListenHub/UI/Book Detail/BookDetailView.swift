@@ -92,8 +92,14 @@ extension BookDetailView{
             viewModel.play()
         }, label: {
             VStack{
-                Label(viewModel.playbuttonIconAndText.1, systemImage: viewModel.playbuttonIconAndText.0).font(.body.bold())
-                    
+                HStack {
+                    if viewModel.showEqualizer {
+                        EqualizerView(barCount: 4, color: Color.white, isPlaying: .constant(true)).frame(width: 24, height: 24, alignment: .center)
+                    } else {
+                        Image(systemName: "airpodspro")
+                    }
+                    Text(viewModel.playbuttonText).font(.body.bold())
+                }
                 ColorfulBand()
             }
         })
