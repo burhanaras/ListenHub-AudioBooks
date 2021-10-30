@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var currentTab = 0
     @State var showPlayerSheet: Bool = false
-    @State var play: Bool = false
+    @State var play: Bool = true
     
     var body: some View {
         
@@ -46,27 +46,7 @@ struct ContentView: View {
                     
                 }
                 
-                Button(action: {
-                    showPlayerSheet = true
-                }, label: {
-//                    Image(systemName: "airpodspro")
-//                        .font(.title)
-//                        .foregroundColor(.white)
-//                        .padding()
-//                        .background(
-//                            Circle()
-//                                .strokeBorder(Color.white,lineWidth: 2)
-//                                .background(Circle().foregroundColor(Color.purple)).shadow(radius: 24))
-//                        .padding(4)
-                    
-                    EqualizerView(barCount: 4, color: Color.white, isPlaying: $play).frame(width: 48, height: 48, alignment: .center)
-                        .background(
-                            Circle()
-                                .strokeBorder(Color.white,lineWidth: 2)
-                                .background(Circle().foregroundColor(Color.purple)).shadow(radius: 24))
-                        .padding(4)
-                    
-                })
+                playerButtontton
             }
             
         }
@@ -74,6 +54,15 @@ struct ContentView: View {
             Coordinator.shared.playerView()
         })
         
+    }
+    
+    var playerButtontton: some View {
+        Button(action: {
+            showPlayerSheet = true
+        }, label: {
+            WavesView(isAnimating: .constant(true))
+                .frame(width: 60, height: 60, alignment: .center)
+        })
     }
     
 }

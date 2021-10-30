@@ -11,7 +11,7 @@ import SwiftUI
 struct ListenHubApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Coordinator.shared.contentView()
         }
     }
 }

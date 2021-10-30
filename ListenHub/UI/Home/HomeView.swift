@@ -91,6 +91,19 @@ struct BookView: View {
                     
                 }
                 .frame(width: bookDimensions.0, height: bookDimensions.1, alignment: .leading)
+                .contextMenu{
+                    Button(action: {
+                        ListenHubPlayer.shared.prepare(book: book, startFrom: 0, playAfterSetup: true)
+                    }, label: {
+                        Label("Play", systemImage: "play")
+                    })
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        Label("Add To Favorites", systemImage: "star")
+                    })
+                }
 
             })
     }

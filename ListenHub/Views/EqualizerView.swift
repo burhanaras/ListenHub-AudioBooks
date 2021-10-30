@@ -11,7 +11,7 @@ struct EqualizerView: View {
     var barCount: Int
     var hasFrame: Bool = true
     var color = Color.primary
-    @State var values: [CGFloat] = [80, 60, 40, 60, 60, 40, 60, 80, 80, 60, 40, 60, 60, 40, 60, 80]
+    @State var values: [CGFloat] = [80, 60, 40, 40, 60, 80]
     @Binding var isPlaying: Bool
     
     private let timer = Timer.publish(every: 0.1,  on: .main, in: .common).autoconnect()
@@ -42,9 +42,10 @@ struct EqualizerView: View {
             .onReceive(timer, perform: { _ in
                 
                 if !isPlaying{
-                    values = [60, 40, 50, 20]
+                    values = [40, 60, 40, 60]
                     return
                 }
+                
                 let slice1 = values[..<1]
                 let slice2 = values[1...]
                 values = Array(slice2) + Array(slice1)

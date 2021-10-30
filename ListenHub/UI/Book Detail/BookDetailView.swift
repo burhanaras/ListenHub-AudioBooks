@@ -116,19 +116,19 @@ struct ColorfulBand: View {
     var body: some View {
         HStack (spacing: 0){
             Rectangle()
-                .foregroundColor(.yellow)
+                .foregroundColor(Color("Color0"))
                 .frame(maxWidth: .infinity)
             
             Rectangle()
-                .foregroundColor(.red)
+                .foregroundColor(Color("Color1"))
                 .frame(maxWidth: .infinity)
             
             Rectangle()
-                .foregroundColor(.green)
+                .foregroundColor(Color("Color2"))
                 .frame(maxWidth: .infinity)
             
             Rectangle()
-                .foregroundColor(.purple)
+                .foregroundColor(Color("Color3"))
                 .frame(maxWidth: .infinity)
         }
         .frame(height: 4)

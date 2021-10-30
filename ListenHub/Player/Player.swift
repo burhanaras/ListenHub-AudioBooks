@@ -35,6 +35,8 @@ enum PlayerState {
 
 class ListenHubPlayer: Player, AQPlayerDelegate {
     
+    static let shared = ListenHubPlayer()
+    
     func aQPlayerManager(_ playerManager: AQPlayerManager, progressDidUpdate percentage: Double) {
         print("progressDidUpdate: \(percentage)")
         self.progress.send(Int(percentage * 100))
