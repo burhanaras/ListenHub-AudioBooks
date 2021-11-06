@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @State var currentTab = 0
     @State var showPlayerSheet: Bool = false
-    @State var play: Bool = true
+    @ObservedObject var viewModel : ContentviewModel
     
     var body: some View {
         
@@ -60,7 +60,7 @@ struct ContentView: View {
         Button(action: {
             showPlayerSheet = true
         }, label: {
-            WavesView(isAnimating: .constant(true))
+            WavesView(isAnimating: $viewModel.isPlaying)
                 .frame(width: 60, height: 60, alignment: .center)
         })
     }
@@ -69,7 +69,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
-        ContentView().colorScheme(.dark)
+        ContentView(viewModel: ContentviewModel(player: ListenHubPlayer.shared))
+        ContentView(viewModel: ContentviewModel(player: ListenHubPlayer.shared)).colorScheme(.dark)
     }
 }

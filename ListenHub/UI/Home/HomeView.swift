@@ -77,7 +77,7 @@ struct BookView: View {
                     .aspectRatio(1, contentMode: .fit)
                     .frame(width: bookDimensions.0, height: bookDimensions.0, alignment: .center)
                     .cornerRadius(8)
-                    .shadow(radius: 4)
+                    .shadow(color: Color.gray, radius: 5, x: 5, y: 5)
                     
                     Text(book.title)
                         .font(.subheadline).bold()
@@ -120,11 +120,13 @@ struct AdaptiveBookView: View {
                     .aspectRatio(1, contentMode: .fit)
                         .frame(maxWidth: .infinity)
                     .cornerRadius(8)
-                    .shadow(radius: 4)
+                    .shadow(color: Color.gray, radius: 5, x: 5, y: 5)
                     
                     Text(book.title)
                         .font(.subheadline).bold()
                         .foregroundColor(.primary)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
                         .padding(.bottom, 2)
                     
                     Text(book.author.name)

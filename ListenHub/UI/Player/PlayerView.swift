@@ -55,7 +55,7 @@ extension PlayerView {
     var playerControls: some View {
         VStack {
             Slider(value: $viewModel.progress, in: 0...100)
-                .padding()
+                .padding(.horizontal)
                 .gesture(DragGesture()
                             .onChanged({ (value) in
                     self.viewModel.isDragging = true
@@ -104,6 +104,7 @@ extension PlayerView {
                             .font(Font.largeTitle.weight(.bold))
                             .frame(width: 80, height: 80)
                     }
+                    .shadow(radius: 16)
                 }
                 
                 Button(action: {
