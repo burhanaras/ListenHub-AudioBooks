@@ -24,6 +24,9 @@ Repository is the single source of truth for all the app data and has a clean AP
 
 Repository fetches data from network then it saves into local database and also notifies UI View classes.
 
+Architecture of AndroCoda App: 
+![alt text](https://github.com/burhanaras/AndroCoda/blob/master/screenshots/androcoda.png "AndroCoda App Architecture")
+
 ListenHub Architecture Overview:
 ![ListenHub Architecture Diagram](https://github.com/burhanaras/ListenHub/blob/master/screenshots/MarvelSwiftUIArch.jpg)
 
