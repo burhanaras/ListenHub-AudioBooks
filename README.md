@@ -26,7 +26,7 @@ Repository fetches data from network then it saves into local database and also 
 
 ListenHub Architecture Overview: 
 
-![alt text](https://github.com/burhanaras/AndroCoda/blob/master/screenshots/MarvelSwiftUIArch.jpg "ListenHub App Architecture")
+![alt text](https://github.com/burhanaras/AndroCoda/blob/master/screenshots/SwiftUI_Architecture.jpg "ListenHub App Architecture")
 
 
 ## Used technologies and libraries
