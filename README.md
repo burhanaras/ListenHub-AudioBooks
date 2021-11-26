@@ -24,7 +24,7 @@ Repository is the single source of truth for all the app data and has a clean AP
 
 Repository fetches data from network then it saves into local database and also notifies UI View classes.
 
-ListenHub Architecture Overview: 
+***ListenHub Architecture Overview:*** 
 
 ![alt text](https://github.com/burhanaras/AndroCoda/blob/master/screenshots/SwiftUI_Architecture.jpg "ListenHub App Architecture")
 
