@@ -15,7 +15,7 @@ The main players in the MVVM-C pattern are:
   - **The View** — that informs the ViewModel about the user’s actions
   - **The ViewModel** — exposes streams of data relevant to the View
   - **The DataModel** — abstracts the data source. The ViewModel works with the DataModel to get and save the data.
-  - **Coordinator** - where dependency injection happens.
+  - **The Coordinator** - where dependency injection happens.
 
 
 In this MVVM-C architecture SwiftUI depend only on a view model (which is an Observable Object). The repository is the only class that depends on multiple other classes; in this project, the repository depends on a persistent data model and a remote backend data source.
